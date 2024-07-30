@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=980px, initial-scale=1">
+    <title>Site</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic"
+        rel="stylesheet" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <section id="header">
+                <p id="calendar-text">calendar</p>
+                <div id="head-line"></div>
+            </section>
+            <div id="world-time" class="world-time">Loading...</div>
+            <div id="user-greeting" class="user-greeting"></div> <!-- Add this line -->
+        </header>
+
+        <div id="username-modal" class="modal">
+            <div class="modal-content">
+                <h2>Enter your name</h2>
+                <input type="text" id="username-input" placeholder="Your name" />
+                <button id="save-username-button">Save</button>
+            </div>
+        </div>
+
+        <main class="main">
+            <section id="month">
+                <p id="year">2024</p>
+                <section id="month-block">
+                    <div id="prev">&#10094;</div>
+                    <p id="month-name"></p>
+                    <div id="next">&#10095;</div>
+                </section>
+            </section>
+            <div id="line"></div>
+            <section id="circle-block">
+                <div id="circle1" class="head-circle"></div>
+                <div id="circle2" class="head-circle"></div>
+                <div id="circle3" class="head-circle"></div>
+            </section>
+            <section class="calendar">
+                <ul class="weekdays">
+                    <li class="circle">Sun</li>
+                    <li class="circle">Mon</li>
+                    <li class="circle">Tue</li>
+                    <li class="circle">Wen</li>
+                    <li class="circle">Thu</li>
+                    <li class="circle">Fri</li>
+                    <li class="circle">Sat</li>
+                </ul>
+            </section>
+            <section id="days-block">
+                <ul class="days"></ul>
+            </section>
+        </main>
+    </div>
+
+
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Event</h2>
+            <input type="text" id="event-input" placeholder="Event name" />
+            <select id="event-category">
+                <option value="sports">Sports</option>
+                <option value="work">Work</option>
+                <option value="hobbies">Hobbies</option>
+                <option value="household">Household Chores</option>
+                <option value="education">Education</option>
+                <option value="surrounding">Surrounding</option>
+                <option value="health">Health</option>
+            </select>
+            <button id="save-event-button">Save Event</button>
+
+            <section id="event-list">
+                <h3>Events:</h3>
+                <ul id="events-container"></ul>
+                <button id="delete-events-button" class="delete-event">&times;</button>
+            </section>
+        </div>
+    </div>
+
+</body>
+
+</html>

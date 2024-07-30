@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: #f4efe7;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    position: relative;
+    display: block;
+    min-width: 960px;
+    min-height: 700px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    align-content: stretch;
+    font-family: "Roboto", "Arial";
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    padding: auto;
+    flex: 1 1 auto;
+    align-items: center;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-greeting {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 30px;
+    margin-left: 5%;
+    margin-top: 2%;
+    font-family: "Brush Script Std";
+    color: #333;
+}
+
+#username-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#username-modal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s;
+}
+
+#username-modal .modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    font-family: 'Lucida Calligraphy', cursive;
+}
+
+#username-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#save-username-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #a3775a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#save-username-button:hover {
+    background-color: #986e52;
+}
+
+#calendar-text {
+    font-family: sans-serif;
+    font-size: 50px;
+    letter-spacing: 30px;
+    margin-top: 23%;
+    margin-left: 2%;
+    position: fixed;
+}
+
+#head-line {
+    width: 430px;
+    border-top: 1.5px solid black;
+    margin-top: 30%;
+    position: fixed;
+}
+
+.world-time {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 40px;
+    margin-left: 10%;
+    margin-top: 5%;
+    font-family: "Apple Chancery", cursive;
+    color: #333;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background: #f4efe7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+}
+
+.num {
+    font-family: "Lucida Handwriting", cursive;
+    font-size: 100px;
+}
+
+#month {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40%;
+    font-size: 40px;
+    margin-left: 7%;
+    margin-top: 20%;
+    padding-top: 4%;
+    font-family: "Lucida Calligraphy", cursive;
+}
+
+#month-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30%;
+    margin-left: 10%;
+}
+
+#line {
+    width: 93%;
+    border-top: 1.5px solid black;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+#circle-block {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin-top: 1%;
+    margin-right: 5%;
+    gap: 1%;
+}
+
+.head-circle {
+    width: 30px;
+    height: 30px;
+    background: #e1d3bf;
+    border-radius: 50px;
+}
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lucida Calligraphy", cursive;
+}
+
+.weekdays {
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    font-size: 200%;
+    list-style-type: none;
+    padding: 0;
+    cursor: default;
+}
+
+.circle {
+    background: #f4efe7;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: black;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+.circle:hover {
+    background: black;
+    color: white;
+}
+
+#days-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: "Roboto";
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 155px);
+    justify-items: center;
+    align-items: center;
+    margin-top: 2%;
+    font-size: 200%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.days li {
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.days li.active {
+    background: black;
+    color: white;
+    border-radius: 50%;
+}
+
+.days li.inactive {
+    color: #cdbca4;
+}
+
+.days li:not(.active):hover {
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+    background: #e1d3bf;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#event-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#event-category {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#save-event-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #a3775a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-event-button:hover {
+    background-color: #986e52;
+}
+
+#event-list {
+    margin-top: 20px;
+}
+
+#events-container {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.event.sports {
+    background-color: #ffcccc;
+}
+
+.event.work {
+    background-color: #cceeff;
+}
+
+.event.hobbies {
+    background-color: #ffcc99;
+}
+
+.event.household {
+    background-color: #ffff99;
+}
+
+.event.education {
+    background-color: #ccffcc;
+}
+
+.event.surrounding {
+    background-color: #b3d9ff;
+}
+
+.event.health {
+    background-color: #ffcce6;
+}
+
+#delete-events-button {
+    float: right;
+    font-size: 20px;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#delete-events-button:hover {
+    color: #666;
+}
