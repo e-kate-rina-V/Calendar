@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Перебор всех куки, удаление пробелы и проверка, начинается ли куки с nameEQ. Если да, возвращение значения этой куки
         for (let i = 0; i < ca.length; i++) {
             let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length); //удаление пробелов
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length); 
             if (c.indexOf(nameEQ) === 0) {
                 return c.substring(nameEQ.length, c.length);
             }
@@ -44,29 +44,28 @@ document.addEventListener('DOMContentLoaded', () => {
     saveUsernameButton.addEventListener("click", () => {
         const usernameInput = document.getElementById("username-input").value; // получение введенного пользователем имени
         if (usernameInput) {
-            setCookie("username", usernameInput, 365); // если введено имя, установка куки с этим именем на 365 дней
-            userGreeting.innerText = `Hello, ${usernameInput}!`; // приветствие
-            usernameModal.style.display = "none"; // скрытие модального окна
+            setCookie("username", usernameInput, 365); 
+            userGreeting.innerText = `Hello, ${usernameInput}!`; 
+            usernameModal.style.display = "none"; 
         }
     });
 
-    // Проверка куки при загрузке страницы
     checkUserNameCookie();
 
 
     // Calendar
     // Элементы для отображения дней, текущего месяца и года
-    const daysTag = document.querySelector(".days"); // элемент, отображающий дни месяца
-    const currentDate = document.getElementById("month-name"); // название месяца
-    const currentYear = document.getElementById("year"); // текущий год
+    const daysTag = document.querySelector(".days"); 
+    const currentDate = document.getElementById("month-name"); 
+    const currentYear = document.getElementById("year"); 
     const prevNextIcon = document.querySelectorAll("#month div"); // переключение между месяцами
 
-    let date = new Date(); // текущая дата и время
-    let currYear = date.getFullYear(); // текущий год
-    let currMonth = date.getMonth(); // текущий месяц
+    let date = new Date(); 
+    let currYear = date.getFullYear(); 
+    let currMonth = date.getMonth(); 
 
     const months = ["January", "February", "March", "April", "May", "June", "July",
-        "August", "September", "October", "November", "December"]; // Массив с названиями месяцев
+        "August", "September", "October", "November", "December"]; 
 
     let events = {}; // объект для хранения событий для календаря.
 
@@ -99,11 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Обновление названия месяца и года
         currentDate.innerText = months[currMonth]; // устанавливает текст месяца
         currentYear.innerText = currYear; // устанавливает текст года
-        daysTag.innerHTML = liTag; // обновляет HTML внутри элемента с днями.
+        daysTag.innerHTML = liTag; // обновляет HTML внутри элемента с днями
 
         // Добавление обработчика событий на каждый день
         //Каждый день, который не является "inactive", получает обработчик события на клик, 
-        //который вызывает функцию openEventModal с датой этого дня.
+        //который вызывает функцию openEventModal с датой этого дня
         const days = document.querySelectorAll(".days li:not(.inactive)");
         days.forEach(day => {
             day.addEventListener("click", (e) => {
@@ -112,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Вызов функции отображения календаря
     renderCalendar();
 
     // Переключение между месяцами
@@ -228,19 +226,18 @@ document.addEventListener('DOMContentLoaded', () => {
         saveEventsToLocalStorage();
     });
 
-    // Загрузка и отображение событий при загрузке страницы
+   
     loadEventsFromLocalStorage();
     renderCalendar();
     renderEvents();
 
     // Time
-    // Элемент для отображения времени
     const worldTimeElement = document.getElementById('world-time');
 
     // Функция для получения и отображения мирового времени
     const fetchWorldTime = () => {
-        fetch('https://worldtimeapi.org/api/timezone/Europe/Kyiv') // API запрос
-            .then(response => response.json()) // преобразование ответа в формат JSON
+        fetch('https://worldtimeapi.org/api/timezone/Europe/Kyiv') 
+            .then(response => response.json()) 
             .then(data => { // обработка полученных данных
                 const datetime = new Date(data.datetime); // создание объекта Date из строки даты и времени полученной из API
                 const hours = datetime.getHours().toString().padStart(2, '0'); // получение текущего часа
@@ -254,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     };
 
-    // Обновление времени каждую секунду
     setInterval(fetchWorldTime, 1000); // установка интервала в 1 секунду 
     fetchWorldTime();
 });
