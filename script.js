@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveUsernameButton = document.getElementById("save-username-button");
 
     // Функция для установки куки с именем, значением и сроком действия (в днях)
-    const setCookie = (name, value, days) => { // установка куки с именем, значением и сроком действия
-        const date = new Date(); // создание объекта с текущей датой и временем
+    const setCookie = (name, value, days) => { 
+        const date = new Date(); 
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // установка даты истечения куки
         const expires = "expires=" + date.toUTCString(); // форматирование строки с датой истечения куки в формате UTC
         document.cookie = `${name}=${value};${expires};path=/`; // установка куки с именем, значением и датой истечения, а также с доступом ко всем страницам на домене (path=/)
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Функция для получения значения куки по имени
     const getCookie = (name) => {
         const nameEQ = name + "="; // создание строки, которая используется для поиска куки с указанным именем
-        const ca = document.cookie.split(';'); // разделяет все куки, хранящиеся в document.cookie, по символу ;, создавая массив куки.
+        const ca = document.cookie.split(';'); // разделяет все куки, хранящиеся в document.cookie, по символу ;, создавая массив куки
         // Перебор всех куки, удаление пробелы и проверка, начинается ли куки с nameEQ. Если да, возвращение значения этой куки
         for (let i = 0; i < ca.length; i++) {
             let c = ca[i];
